@@ -1,115 +1,74 @@
 <!DOCTYPE HTML>
 <html lang="en" style="background: hsl(70, 8%, 15%); overflow-y: scroll;">
 <head>
-    <meta charset="UTF-8">
-    <title>Endless Panoramic Landscape Scroll</title>
 
+    <meta charset="UTF-8">
+
+    <title>untitled</title>
 
     <style>
 
-    :root {
-      --main-bg-color: brown;
-    }
 
-    body {
-        margin: 0;
-        color: hsl(60, 30%, 96%);
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-    }
+:root {
+    --background-position: 4096px 0;
+    --animation: bg-scrolling-reverse calc(  (1s * 60 * 11) / 110  ) infinite;
+    --animation-timing-function: linear;
+}
 
+body {
+    margin: 0;
+}
 
-/*╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-    https://web.archive.org/web/20240127155752/https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409#63454409
-    https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409#63454409
-    source for CSS ~~below~~:
-  ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯*/
-    #container {
-        height: 100vh;
-        position: relative;
-        overflow: hidden;
-    }
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
+   @-moz-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
+     @-o-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
+        @keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
+        @-webkit-keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
+           @-moz-keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
+             @-o-keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
+                @keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
 
-    .photobanner {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        overflow: hidden;
-        white-space: nowrap;
+/* Main styles */
+#endless_panoramic_landscape_scroll {
+    height: 100vh;
+    text-align: center;
+    /* img size is 4096x1408 */
+    background: url("https://jesterjunk.github.io/endless_panoramic_landscape_scroll/img/20240127_00_00006.jpg") repeat-x;
+    background-size: auto 100vh;
+    -webkit-animation: var(--animation);
+       -moz-animation: var(--animation);
+         -o-animation: var(--animation);
+            animation: var(--animation);
+    -webkit-animation-timing-function: var(--animation-timing-function);
+       -moz-animation-timing-function: var(--animation-timing-function);
+         -o-animation-timing-function: var(--animation-timing-function);
+            animation-timing-function: var(--animation-timing-function);
+}
 
-        animation: bannermove 528s linear infinite;
-        animation-direction: reverse;
+#endless_panoramic_landscape_scroll::before {
 
-        /* this removes the gap between images when they are each on a new line in the HTML  */
-        font-size: 0;
-    }
+    content: "Endless Panoramic Landscape Scroll";
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 4rem;
+    line-height: 100vh;
+    font-weight: 400;
+    color: #FFFFFF80;
+    background: #00000080;
+    padding: 0.5rem 1rem;
+}
 
-    .photobanner img {
-        /* uncommenting the next line will add a gap between each image */
-        /* margin: 0 0.5em; */
-        height: 100vh;
-    }
-
-    @keyframes bannermove {
-        0% {
-            transform: translate(0, 0);
-        }
-
-        100% {
-            transform: translate(-50%, 0);
-        }
-    }
-/*╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-    source for CSS ~~above~~:
-    https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409#63454409
-    https://web.archive.org/web/20240127155752/https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409#63454409
-  ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯*/
-
-
-    h1 {
-        z-index: 1000;
-        position: absolute;
-        top: 0;
-        margin: auto;
-        width: 100vw;
-        display: block;
-        text-align: center;
-        background: #00000080;
-        color: #FFFFFF80;
-        font-family: Verdana, Geneva, sans-serif;
-
-        /* offset-x | offset-y | blur-radius | color */
-/*         text-shadow: 0px 0px 2px  #FFFFFF90,
-                     0px 0px 3px  #FFFFFF90,
-                     0px 0px 4px  #FFFFFF90,
-                     0px 0px 5px #FFFFFF90; */
-    }
 
     </style>
-
 
 </head>
 <body>
 
 
-<div id="container">
-
-    <h1>Endless Panoramic Landscape Scroll</h1>
-
-    <div class="photobanner">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
-        <img src="https://jesterjunk.github.io/endless_panoramic_landscape_scroll/20240127_00_00006.jpg">
+    <div id="container_for_endless_panoramic_landscape_scroll">
+        <div id="endless_panoramic_landscape_scroll"></div>
     </div>
-
-</div>
-
 
 
 </body>
