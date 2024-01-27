@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en" style="background: hsl(70, 8%, 15%); overflow-y: scroll;">
+<head>
+    <meta charset="UTF-8">
+    <title>Endless Panoramic Landscape Scroll</title>
+
+
+    <style>
+
+    body {
+        margin: 0;
+        color: hsl(60, 30%, 96%);
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+
+/*╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+    source for CSS below:
+    https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409#63454409
+    https://web.archive.org/web/20240127155752/https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409
+  ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯*/
+    #container {
+        height: 350px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .photobanner {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        overflow: hidden;
+        white-space: nowrap;
+
+        animation: bannermove 22s linear infinite;
+        animation-direction: reverse;
+
+        /* this removes the gap between images when they are each on a new line in the HTML  */
+        font-size: 0;
+    }
+
+    .photobanner img {
+        /* uncommenting the next line will add a gap between each image */
+        /* margin: 0 0.5em; */
+    }
+
+    @keyframes bannermove {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        100% {
+            transform: translate(-50%, 0);
+        }
+    }
+/*╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+    source for CSS above:
+    https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409#63454409
+    https://web.archive.org/web/20240127155752/https://stackoverflow.com/questions/59980269/infinite-horizontal-scrolling-image-loop/63454409
+  ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯*/
+
+
+    h1 {
+        position: absolute;
+        top: 0;
+        margin: auto;
+        width: 100vw;
+        display: block;
+        text-align: center;
+        background: #00000080;
+        color: #FFFFFF80;
+        font-family: Verdana, Geneva, sans-serif;
+
+        /* offset-x | offset-y | blur-radius | color */
+/*         text-shadow: 0px 0px 2px  #FFFFFF90,
+                     0px 0px 3px  #FFFFFF90,
+                     0px 0px 4px  #FFFFFF90,
+                     0px 0px 5px #FFFFFF90; */
+    }
+
+    </style>
+
+
+</head>
+<body>
+
+
+<div id="container">
+    <div class="photobanner">
+        <img src="20240127_00_00006.jpg">
+        <img src="20240127_00_00006.jpg">
+        </div>
+</div>
+
+<h1>Endless Panoramic Landscape Scroll</h1>
+
+</body>
+</html>
