@@ -19,24 +19,35 @@ body {
     margin: 0;
 }
 
-/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
-/* Animations */
-@-webkit-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
-   @-moz-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
-     @-o-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
-        @keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); }}
-        @-webkit-keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
-           @-moz-keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
-             @-o-keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
-                @keyframes bg-scrolling {   0% { background-position: var(--background-position); }}
+@-webkit-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); } }
+   @-moz-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); } }
+     @-o-keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); } }
+        @keyframes bg-scrolling-reverse { 100% { background-position: var(--background-position); } }
+        @-webkit-keyframes bg-scrolling {   0% { background-position: var(--background-position); } }
+           @-moz-keyframes bg-scrolling {   0% { background-position: var(--background-position); } }
+             @-o-keyframes bg-scrolling {   0% { background-position: var(--background-position); } }
+                @keyframes bg-scrolling {   0% { background-position: var(--background-position); } }
 
-/* Main styles */
 #endless_panoramic_landscape_scroll {
     height: 100vh;
     text-align: center;
-    /* img size is 4096x1408 */
-    background: url("https://jesterjunk.github.io/endless_panoramic_landscape_scroll/img/20240127_00_00006_15360x4320_80q.jpg") repeat-x;
+
+
+/*╭─────────────────────────────────────────────────────────────────────────────────────────────╮
+     The image size is 15360x4320 (16K) if you decide to resize this, be sure to also resize
+     the 15360px width value in the :root {} on line 13:     --background-position: 15360px 0;
+  ╰─────────────────────────────────────────────────────────────────────────────────────────────╯*/
+    background: url("img/20240127_00_00006_15360x4320_80q.jpg") repeat-x;
+
+
+/*╭─────────────────────────────────────────────────────────────────────────────────────────────╮
+     If you notice jumping of the image, it is this line that is causing it, but without this
+     line, the image won't scale to the viewport height, so far I have not found a workaround
+     solution that fixes the jumping yet.
+  ╰─────────────────────────────────────────────────────────────────────────────────────────────╯*/
     background-size: auto 100vh;
+
+
     -webkit-animation: var(--animation);
        -moz-animation: var(--animation);
          -o-animation: var(--animation);
